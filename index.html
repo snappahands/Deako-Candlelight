@@ -226,7 +226,7 @@
       </div>
       <div class="savings-highlight rounded-2xl px-10 py-6 max-w-2xl">
         <p class="text-4xl font-black gradient-text" data-savings-line>Save $315 Off Base Home Cost</p>
-        <p class="text-lg md:text-xl font-bold mt-2 text-navy-700"><span data-savings-pct class="text-green-600 font-black">41%</span> off their current spend &mdash; past the 40% no-brainer threshold</p>
+        <p class="text-lg md:text-xl font-bold mt-2 text-navy-700"><span data-savings-pct class="text-green-600 font-black">42%</span> off Candlelight's current spend</p>
       </div>
     </div>
   </div>
@@ -965,7 +965,7 @@
         const savingsEl = document.querySelector('[data-savings-line]');
         if (savingsEl) savingsEl.textContent = `Save ${fmt(savings)} Off Base Home Cost`;
         document.querySelectorAll('[data-savings-perhome]').forEach(el => el.textContent = `Save ${fmt(savings)} per home`);
-        const pct = total>0 ? Math.round(savings/total*100) : 0;
+        const pct = total>0 ? Math.ceil(savings/total*100) : 0;
         document.querySelectorAll('[data-savings-pct]').forEach(el => el.textContent = pct+'%');
         // Slide 5 title
         const titleEl = document.querySelector('[data-slide5-title]');
