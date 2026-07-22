@@ -93,7 +93,7 @@
     <button onclick="prevSlide()" style="background:none;border:none;cursor:pointer;color:#C99631;display:flex;align-items:center;padding:2px;" onmouseover="this.style.color='#e2c07a'" onmouseout="this.style.color='#C99631'">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
     </button>
-    <span class="slide-counter" id="slideCounter" style="color:#C99631;font-size:13px;font-weight:600;font-variant-numeric:tabular-nums;min-width:42px;text-align:center;">1 / 15</span>
+    <span class="slide-counter" id="slideCounter" style="color:#C99631;font-size:13px;font-weight:600;font-variant-numeric:tabular-nums;min-width:42px;text-align:center;">1 / 14</span>
     <button onclick="nextSlide()" style="background:none;border:none;cursor:pointer;color:#C99631;display:flex;align-items:center;padding:2px;" onmouseover="this.style.color='#e2c07a'" onmouseout="this.style.color='#C99631'">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
     </button>
@@ -435,97 +435,14 @@
   </div>
 
   <!-- ==================== SLIDE 9: SIDE-BY-SIDE: ALL THREE ==================== -->
-  <div class="slide" data-slide="9">
-    <div class="flex flex-col items-center justify-center min-h-screen w-full px-6 py-6 text-center fade-in">
-      <p class="text-navy-400 font-semibold text-sm tracking-widest uppercase mb-3">Side-by-Side Comparison</p>
-      <h2 class="text-3xl md:text-5xl font-bold mb-8 text-navy-700">All three. One package.</h2>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-6xl w-full">
-
-        <!-- DOORBELL CAMERA -->
-        <div class="flex flex-col items-center">
-          <p class="text-navy-700 font-bold text-sm uppercase tracking-wider mb-3">Doorbell Camera</p>
-          <div class="bg-white rounded-2xl p-4 border border-gray-200 shadow-sm w-full cost-current">
-            <p class="text-orange-400 font-bold text-[10px] tracking-widest uppercase mb-2">Today</p>
-            <div class="h-24 flex items-center justify-center mb-2 bg-gray-50 rounded-lg p-1">
-              <img src="images/cl-nest-doorbell.png" alt="Nest Video Doorbell" class="max-h-full object-contain">
-            </div>
-            <p class="text-sm font-bold text-navy-700 leading-tight">Nest Video Doorbell</p>
-            <p class="text-orange-400 text-xl font-bold mt-1">$190</p>
-          </div>
-          <div class="text-navy-400 text-2xl my-2 leading-none">↓</div>
-          <div class="bg-white rounded-2xl p-4 border border-navy-200 shadow-sm w-full cost-new">
-            <p class="text-navy-700 font-bold text-[10px] tracking-widest uppercase mb-2">Deako + Vivint</p>
-            <div class="h-24 flex items-center justify-center mb-2 bg-gray-50 rounded-lg p-1">
-              <img src="images/vivint-doorbell-pro.png" alt="Vivint Doorbell Camera Pro" class="max-h-full object-contain">
-            </div>
-            <p class="text-sm font-bold text-navy-700 leading-tight">Vivint Doorbell Camera Pro</p>
-            <p class="text-green-600 text-xl font-bold mt-1">Included</p>
-          </div>
-        </div>
-
-        <!-- SMART LOCK -->
-        <div class="flex flex-col items-center">
-          <p class="text-navy-700 font-bold text-sm uppercase tracking-wider mb-3">Smart Lock</p>
-          <div class="bg-white rounded-2xl p-4 border border-gray-200 shadow-sm w-full cost-current">
-            <p class="text-orange-400 font-bold text-[10px] tracking-widest uppercase mb-2">Today</p>
-            <div class="h-24 flex items-center justify-center mb-2 bg-gray-50 rounded-lg p-1">
-              <img src="images/kwikset-939.jpg" alt="Kwikset Halo" class="max-h-full object-contain">
-            </div>
-            <p class="text-sm font-bold text-navy-700 leading-tight">Kwikset Halo Touchscreen</p>
-            <p class="text-orange-400 text-xl font-bold mt-1">$140</p>
-          </div>
-          <div class="text-navy-400 text-2xl my-2 leading-none">↓</div>
-          <div class="bg-white rounded-2xl p-4 border border-navy-200 shadow-sm w-full cost-new">
-            <p class="text-navy-700 font-bold text-[10px] tracking-widest uppercase mb-2">Deako + Vivint</p>
-            <div class="h-24 flex items-center justify-center mb-2 bg-gray-50 rounded-lg p-1">
-              <img src="images/vivint-smart-lock-pair.png" alt="Vivint Smart Lock" class="max-h-full object-contain">
-            </div>
-            <p class="text-sm font-bold text-navy-700 leading-tight">Vivint Smart Lock</p>
-            <p class="text-green-600 text-xl font-bold mt-1">Included</p>
-          </div>
-        </div>
-
-        <!-- THERMOSTAT -->
-        <div class="flex flex-col items-center">
-          <p class="text-navy-700 font-bold text-sm uppercase tracking-wider mb-3">Smart Thermostat</p>
-          <div class="bg-white rounded-2xl p-4 border border-gray-200 shadow-sm w-full cost-current">
-            <p class="text-orange-400 font-bold text-[10px] tracking-widest uppercase mb-2">Today</p>
-            <div class="h-24 flex items-center justify-center mb-2 bg-gray-50 rounded-lg p-1">
-              <img src="images/nest-thermostat.png" alt="Nest Thermostat Pro Smart" class="max-h-full object-contain">
-            </div>
-            <p class="text-sm font-bold text-navy-700 leading-tight">Nest Thermostat Pro Smart</p>
-            <p class="text-orange-400 text-xl font-bold mt-1">$120</p>
-          </div>
-          <div class="text-navy-400 text-2xl my-2 leading-none">↓</div>
-          <div class="bg-white rounded-2xl p-4 border border-navy-200 shadow-sm w-full cost-new">
-            <p class="text-navy-700 font-bold text-[10px] tracking-widest uppercase mb-2">Deako + Vivint</p>
-            <div class="h-24 flex items-center justify-center mb-2 bg-gray-50 rounded-lg p-1">
-              <img src="images/vivint-element-thermostat.png" alt="Vivint Element Thermostat" class="max-h-full object-contain">
-            </div>
-            <p class="text-sm font-bold text-navy-700 leading-tight">Vivint Element Thermostat</p>
-            <p class="text-green-600 text-xl font-bold mt-1">Included</p>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Footer roll-up -->
-      <div class="mt-6 savings-highlight rounded-2xl px-8 py-4 max-w-3xl">
-        <p class="text-xl md:text-2xl font-black gradient-text">$450 today &rarr; Included with the Deako + Vivint package</p>
-        <p class="text-xs text-gray-500 mt-1 italic">Doorbell, lock, and thermostat all included in the Deako + Vivint package.</p>
-      </div>
-    </div>
-  </div>
-
   <!-- ==================== SLIDE 12: DEAKO + VIVINT SOLUTION ==================== -->
-  <div class="slide" data-slide="10">
+  <div class="slide" data-slide="9">
     <div class="flex flex-col items-center justify-center min-h-screen w-full px-8 text-center fade-in">
       <p class="text-orange-400 font-semibold text-sm tracking-widest uppercase mb-4">The Deako + Vivint Solution</p>
       <h2 class="text-3xl md:text-5xl font-bold mb-6 leading-tight max-w-5xl text-navy-700 text-center">One app. One support line.<br><span style="display:inline-block;margin-top:0.25em;">Professionally installed.</span></h2>
       <!-- Installer hero band — auto-plays when slide 11 is shown -->
       <div class="max-w-5xl w-full rounded-2xl overflow-hidden mb-5" style="height:340px;">
-        <video data-slide-video data-target-slide="10" muted playsinline loop preload="auto" poster="images/vivint-installer-banner.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 22%;display:block;">
+        <video data-slide-video data-target-slide="9" muted playsinline loop preload="auto" poster="images/vivint-installer-banner.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 22%;display:block;">
           <source src="videos/vivint-white-glove.mp4" type="video/mp4">
         </video>
       </div>
@@ -568,7 +485,7 @@
   </div>
 
   <!-- ==================== SLIDE 13: EXPANDABLE PLATFORM ==================== -->
-  <div class="slide" data-slide="11">
+  <div class="slide" data-slide="10">
     <div class="flex flex-col items-center justify-center min-h-screen w-full px-8 text-center fade-in">
       <p class="text-navy-400 font-semibold text-sm tracking-widest uppercase mb-6">Expandable Platform</p>
       <h2 class="text-4xl md:text-6xl font-bold mb-10 text-navy-700">Grows with your homebuyers</h2>
@@ -627,7 +544,7 @@
   </div>
 
   <!-- ==================== SLIDE 14: HOMEBUYER EXPERIENCE ==================== -->
-  <div class="slide" data-slide="12">
+  <div class="slide" data-slide="11">
     <div class="flex flex-col items-center justify-center min-h-screen w-full px-8 text-center fade-in">
       <p class="text-navy-400 font-semibold text-sm tracking-widest uppercase mb-6">The Homebuyer Experience</p>
       <h2 class="text-4xl md:text-6xl font-bold mb-8 text-navy-700">White glove from<br>close to connected</h2>
@@ -753,7 +670,7 @@
     body.deako-edit .edit-switches-btn { background: #C99631; color: white; border-color: #C99631; }
   </style>
   <!-- ==================== SLIDE 17: CASE FOR CHANGE ==================== -->
-  <div class="slide" data-slide="13">
+  <div class="slide" data-slide="12">
     <div class="flex flex-col items-center justify-center min-h-screen w-full px-8 text-center fade-in py-6">
       <p class="text-orange-400 font-semibold text-sm tracking-widest uppercase mb-3 mt-8">The Case for Change</p>
       <h2 class="text-4xl md:text-5xl font-bold mb-6 text-navy-700">Why make the switch?</h2>
@@ -841,7 +758,7 @@
     .ai-video-modal-inner video, .ai-video-modal-inner iframe { width: 100%; height: 100%; border: 0; display: block; }
     .ai-video-close { position: absolute; top: -12px; right: -12px; width: 40px; height: 40px; border-radius: 50%; background: white; color: #3B4042; border: 0; cursor: pointer; font-size: 18px; font-weight: 700; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
   </style>
-  <div class="slide" data-slide="14">
+  <div class="slide" data-slide="13">
     <div class="flex flex-col items-center justify-center min-h-screen w-full px-8 py-4 fade-in">
       <p class="text-orange-400 font-semibold text-xs tracking-widest uppercase mb-2 text-center">What's Next</p>
       <h2 class="text-2xl md:text-4xl font-bold mb-2 leading-tight text-navy-700 text-center max-w-5xl">Built to Evolve. Built to Differentiate.</h2>
@@ -908,7 +825,7 @@
   </div>
 
   <!-- ==================== SLIDE 19: THANK YOU ==================== -->
-  <div class="slide" data-slide="15">
+  <div class="slide" data-slide="14">
     <div class="flex flex-col items-center justify-center min-h-screen w-full px-8 text-center fade-in bg-navy-700">
       <div style="background:white;border-radius:10px;padding:6px 20px;display:inline-flex;align-items:center;gap:12px;margin-bottom:2.5rem;">
         <img src="https://shop.deako.com/cdn/shop/files/Deako_2025_logo_500px_white.png?v=1743474883" alt="Deako" class="h-7" style="filter:invert(1);" onerror="this.style.display='none'">
