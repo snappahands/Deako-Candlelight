@@ -850,6 +850,13 @@
   </div>
 
 
+    <!-- AI video modal (for What's Next demos) -->
+  <div class="ai-video-modal" id="aiVideoModal" onclick="closeDeakoVideo(event)">
+    <div class="ai-video-modal-inner" id="aiVideoModalInner" onclick="event.stopPropagation()">
+      <button class="ai-video-close" onclick="closeDeakoVideo()">&times;</button>
+    </div>
+  </div>
+
   <script>
     // ===== Slide 4 / 5: editable Today-side prices, live recalc =====
     (function () {
