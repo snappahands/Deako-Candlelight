@@ -263,7 +263,6 @@
         <div class="bg-white rounded-2xl p-8 border border-navy-200 shadow-sm cost-new">
           <p class="text-navy-700 font-bold text-sm tracking-widest uppercase mb-6">Deako + Vivint</p>
           <div class="space-y-3 text-left">
-            <div class="flex justify-between text-base"><span class="text-gray-500">Deako Base System</span><span class="text-green-600 font-semibold">included</span></div>
             <div class="flex justify-between text-base"><span class="text-gray-500">Vivint Doorbell Camera + Chime</span><span class="text-green-600 font-semibold">included</span></div>
             <div class="flex justify-between text-base"><span class="text-gray-500">Vivint Smart Lock</span><span class="text-green-600 font-semibold">included</span></div>
             <div class="flex justify-between text-base"><span class="text-gray-500">Vivint Thermostat</span><span class="text-green-600 font-semibold">included</span></div>
@@ -763,6 +762,9 @@
       <p class="text-orange-400 font-semibold text-xs tracking-widest uppercase mb-2 text-center">What's Next</p>
       <h2 class="text-2xl md:text-4xl font-bold mb-2 leading-tight text-navy-700 text-center max-w-5xl">Built to Evolve. Built to Differentiate.</h2>
       <p class="text-sm md:text-base text-gray-600 max-w-3xl text-center mb-4 leading-snug">Buyer expectations move fast. Deako Connectors let your homes adopt new capabilities without rewiring &mdash; and the Intelligent home is the next leap.</p>
+      <div class="flex justify-center mb-4">
+        <button onclick="playDeakoVideo('playall')" style="display:inline-flex;align-items:center;gap:8px;background:#C99631;color:#fff;border:none;border-radius:999px;padding:8px 22px;font-size:13px;font-weight:800;letter-spacing:.06em;cursor:pointer;box-shadow:0 4px 14px rgba(201,150,49,.4);">&#9654;&nbsp;PLAY ALL</button>
+      </div>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-5xl w-full">
         <!-- Adaptive Lighting -->
         <div class="ai-card">
@@ -962,6 +964,7 @@
       sound:    'https://www.youtube.com/embed/TtWb2-dWRxI?autoplay=1&rel=0',
       intercom: 'https://www.youtube.com/embed/wrpnolHtfww?autoplay=1&rel=0',
       care:     'https://www.youtube.com/embed/9E0Jrl3unLg?autoplay=1&rel=0',
+      playall:  'https://github.com/snappahands/Deako-Candlelight/releases/download/assets-v1/deako-drh-demos.mp4',
     };
     function playDeakoVideo(key) {
       const url = DEAKO_AI_VIDEOS[key];
