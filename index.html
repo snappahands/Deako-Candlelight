@@ -90,14 +90,14 @@
 </head>
 <body class="bg-white text-navy-900 overflow-hidden">
 
-  <button onclick="togglePricing()" id="pricingToggle" style="position:fixed;top:16px;left:16px;z-index:50;background:rgba(59,64,66,0.92);backdrop-filter:blur(4px);border:1px solid rgba(201,150,49,0.4);border-radius:999px;padding:6px 14px;color:#C99631;font-size:12px;font-weight:700;letter-spacing:.03em;cursor:pointer;box-shadow:0 4px 20px rgba(0,0,0,0.25);">Show Pricing</button>
+  <button onclick="togglePricing()" id="pricingToggle" title="Show pricing" style="position:fixed;top:16px;left:16px;z-index:50;background:rgba(59,64,66,0.92);backdrop-filter:blur(4px);border:1px solid rgba(201,150,49,0.5);border-radius:50%;width:36px;height:36px;color:#C99631;font-size:17px;font-weight:800;cursor:pointer;box-shadow:0 4px 20px rgba(0,0,0,0.25);display:flex;align-items:center;justify-content:center;">$</button>
 
   <!-- Navigation -->
   <div style="position:fixed;top:16px;right:16px;z-index:50;display:flex;align-items:center;gap:8px;background:rgba(59,64,66,0.92);backdrop-filter:blur(4px);border:1px solid rgba(201,150,49,0.3);border-radius:999px;padding:6px 14px;box-shadow:0 4px 20px rgba(0,0,0,0.25);">
     <button onclick="prevSlide()" style="background:none;border:none;cursor:pointer;color:#C99631;display:flex;align-items:center;padding:2px;" onmouseover="this.style.color='#e2c07a'" onmouseout="this.style.color='#C99631'">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
     </button>
-    <span class="slide-counter" id="slideCounter" style="color:#C99631;font-size:13px;font-weight:600;font-variant-numeric:tabular-nums;min-width:42px;text-align:center;">1 / 14</span>
+    <span class="slide-counter" id="slideCounter" style="color:#C99631;font-size:13px;font-weight:600;font-variant-numeric:tabular-nums;min-width:42px;text-align:center;">1 / 15</span>
     <button onclick="nextSlide()" style="background:none;border:none;cursor:pointer;color:#C99631;display:flex;align-items:center;padding:2px;" onmouseover="this.style.color='#e2c07a'" onmouseout="this.style.color='#C99631'">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
     </button>
@@ -439,14 +439,106 @@
   </div>
 
   <!-- ==================== SLIDE 9: SIDE-BY-SIDE: ALL THREE ==================== -->
-  <!-- ==================== SLIDE 12: DEAKO + VIVINT SOLUTION ==================== -->
+    <!-- ==================== SLIDE: HOMEBUYER DEMAND ==================== -->
   <div class="slide" data-slide="9">
+    <div class="flex flex-col items-center justify-center min-h-screen w-full px-10 py-8 fade-in">
+      <p class="text-orange-400 font-semibold text-xs tracking-widest uppercase mb-2 text-center">Homebuyer Demand</p>
+      <h2 class="text-4xl md:text-6xl font-black mb-2 text-navy-700 text-center">&hellip;And Homebuyers want it!</h2>
+      <p class="text-sm md:text-lg text-gray-500 mb-8 text-center">Top 10 Most Desired Smart Home Technologies (% rating essential or desirable)</p>
+      <div style="width:100%;max-width:1150px;display:flex;align-items:stretch;justify-content:center;gap:12px;height:44vh;">
+        <div style="flex:1 1 0;display:flex;flex-direction:column;min-width:0;">
+          <div style="flex:1;display:flex;align-items:flex-end;">
+            <div style="width:100%;background:#d1d5db;border-radius:5px 5px 0 0;height:91.8%;position:relative;">
+              <span style="position:absolute;top:7px;left:0;right:0;text-align:center;color:#4b5563;font-weight:800;font-size:14px;">78%</span>
+            </div>
+          </div>
+          <div style="font-size:10px;font-weight:700;color:#3B4042;text-align:center;margin-top:8px;line-height:1.15;">Smart<br>Thermostats</div>
+        </div>
+        <div style="flex:1 1 0;display:flex;flex-direction:column;min-width:0;">
+          <div style="flex:1;display:flex;align-items:flex-end;">
+            <div style="width:100%;background:#d1d5db;border-radius:5px 5px 0 0;height:89.4%;position:relative;">
+              <span style="position:absolute;top:7px;left:0;right:0;text-align:center;color:#4b5563;font-weight:800;font-size:14px;">76%</span>
+            </div>
+          </div>
+          <div style="font-size:10px;font-weight:700;color:#3B4042;text-align:center;margin-top:8px;line-height:1.15;">Smart Security<br>Systems</div>
+        </div>
+        <div style="flex:1 1 0;display:flex;flex-direction:column;min-width:0;">
+          <div style="flex:1;display:flex;align-items:flex-end;">
+            <div style="width:100%;background:#d1d5db;border-radius:5px 5px 0 0;height:87.1%;position:relative;">
+              <span style="position:absolute;top:7px;left:0;right:0;text-align:center;color:#4b5563;font-weight:800;font-size:14px;">74%</span>
+            </div>
+          </div>
+          <div style="font-size:10px;font-weight:700;color:#3B4042;text-align:center;margin-top:8px;line-height:1.15;">Video Doorbells<br>&amp; Cameras</div>
+        </div>
+        <div style="flex:1 1 0;display:flex;flex-direction:column;min-width:0;">
+          <div style="flex:1;display:flex;align-items:flex-end;">
+            <div style="width:100%;background:#d1d5db;border-radius:5px 5px 0 0;height:76.5%;position:relative;">
+              <span style="position:absolute;top:7px;left:0;right:0;text-align:center;color:#4b5563;font-weight:800;font-size:14px;">65%</span>
+            </div>
+          </div>
+          <div style="font-size:10px;font-weight:700;color:#3B4042;text-align:center;margin-top:8px;line-height:1.15;">Smart Lighting<br>Systems</div>
+        </div>
+        <div style="flex:1 1 0;display:flex;flex-direction:column;min-width:0;">
+          <div style="flex:1;display:flex;align-items:flex-end;">
+            <div style="width:100%;background:#d1d5db;border-radius:5px 5px 0 0;height:72.9%;position:relative;">
+              <span style="position:absolute;top:7px;left:0;right:0;text-align:center;color:#4b5563;font-weight:800;font-size:14px;">62%</span>
+            </div>
+          </div>
+          <div style="font-size:10px;font-weight:700;color:#3B4042;text-align:center;margin-top:8px;line-height:1.15;">Smart Locks /<br>Keyless Entry</div>
+        </div>
+        <div style="flex:1 1 0;display:flex;flex-direction:column;min-width:0;">
+          <div style="flex:1;display:flex;align-items:flex-end;">
+            <div style="width:100%;background:#d1d5db;border-radius:5px 5px 0 0;height:68.2%;position:relative;">
+              <span style="position:absolute;top:7px;left:0;right:0;text-align:center;color:#4b5563;font-weight:800;font-size:14px;">58%</span>
+            </div>
+          </div>
+          <div style="font-size:10px;font-weight:700;color:#3B4042;text-align:center;margin-top:8px;line-height:1.15;">Whole-Home<br>Wi-Fi / Mesh</div>
+        </div>
+        <div style="flex:1 1 0;display:flex;flex-direction:column;min-width:0;">
+          <div style="flex:1;display:flex;align-items:flex-end;">
+            <div style="width:100%;background:#d1d5db;border-radius:5px 5px 0 0;height:64.7%;position:relative;">
+              <span style="position:absolute;top:7px;left:0;right:0;text-align:center;color:#4b5563;font-weight:800;font-size:14px;">55%</span>
+            </div>
+          </div>
+          <div style="font-size:10px;font-weight:700;color:#3B4042;text-align:center;margin-top:8px;line-height:1.15;">Smart Garage<br>Door Openers</div>
+        </div>
+        <div style="flex:1 1 0;display:flex;flex-direction:column;min-width:0;">
+          <div style="flex:1;display:flex;align-items:flex-end;">
+            <div style="width:100%;background:#d1d5db;border-radius:5px 5px 0 0;height:58.8%;position:relative;">
+              <span style="position:absolute;top:7px;left:0;right:0;text-align:center;color:#4b5563;font-weight:800;font-size:14px;">50%</span>
+            </div>
+          </div>
+          <div style="font-size:10px;font-weight:700;color:#3B4042;text-align:center;margin-top:8px;line-height:1.15;">Voice Assistant<br>Integration</div>
+        </div>
+        <div style="flex:1 1 0;display:flex;flex-direction:column;min-width:0;">
+          <div style="flex:1;display:flex;align-items:flex-end;">
+            <div style="width:100%;background:#d1d5db;border-radius:5px 5px 0 0;height:52.9%;position:relative;">
+              <span style="position:absolute;top:7px;left:0;right:0;text-align:center;color:#4b5563;font-weight:800;font-size:14px;">45%</span>
+            </div>
+          </div>
+          <div style="font-size:10px;font-weight:700;color:#3B4042;text-align:center;margin-top:8px;line-height:1.15;">Smart Irrigation<br>Systems</div>
+        </div>
+        <div style="flex:1 1 0;display:flex;flex-direction:column;min-width:0;">
+          <div style="flex:1;display:flex;align-items:flex-end;">
+            <div style="width:100%;background:#d1d5db;border-radius:5px 5px 0 0;height:49.4%;position:relative;">
+              <span style="position:absolute;top:7px;left:0;right:0;text-align:center;color:#4b5563;font-weight:800;font-size:14px;">42%</span>
+            </div>
+          </div>
+          <div style="font-size:10px;font-weight:700;color:#3B4042;text-align:center;margin-top:8px;line-height:1.15;">Smart<br>Appliances</div>
+        </div>
+      </div>
+      <p class="italic text-gray-400 mt-6 text-center" style="font-size:11px;max-width:1000px;">Parks Associates, Next-Generation Smart Home: Building for the Future; NAHB 2024 &ldquo;What Home Buyers Really Want&rdquo; (verified figures for top 3; remaining values estimated from category trends)</p>
+    </div>
+  </div>
+
+<!-- ==================== SLIDE 12: DEAKO + VIVINT SOLUTION ==================== -->
+  <div class="slide" data-slide="10">
     <div class="flex flex-col items-center justify-center min-h-screen w-full px-8 text-center fade-in">
       <p class="text-orange-400 font-semibold text-sm tracking-widest uppercase mb-4">The Deako + Vivint Solution</p>
       <h2 class="text-3xl md:text-5xl font-bold mb-6 leading-tight max-w-5xl text-navy-700 text-center">One app. One support line.<br><span style="display:inline-block;margin-top:0.25em;">Professionally installed.</span></h2>
       <!-- Installer hero band — auto-plays when slide 11 is shown -->
       <div class="max-w-5xl w-full rounded-2xl overflow-hidden mb-5" style="height:340px;">
-        <video data-slide-video data-target-slide="9" muted playsinline loop preload="auto" poster="images/vivint-installer-banner.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 22%;display:block;">
+        <video data-slide-video data-target-slide="10" muted playsinline loop preload="auto" poster="images/vivint-installer-banner.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 22%;display:block;">
           <source src="videos/vivint-white-glove.mp4" type="video/mp4">
         </video>
       </div>
@@ -489,7 +581,7 @@
   </div>
 
   <!-- ==================== SLIDE 13: EXPANDABLE PLATFORM ==================== -->
-  <div class="slide" data-slide="10">
+  <div class="slide" data-slide="11">
     <div class="flex flex-col items-center justify-center min-h-screen w-full px-8 text-center fade-in">
       <p class="text-navy-400 font-semibold text-sm tracking-widest uppercase mb-6">Expandable Platform</p>
       <h2 class="text-4xl md:text-6xl font-bold mb-10 text-navy-700">Grows with your homebuyers</h2>
@@ -548,7 +640,7 @@
   </div>
 
   <!-- ==================== SLIDE 14: HOMEBUYER EXPERIENCE ==================== -->
-  <div class="slide" data-slide="11">
+  <div class="slide" data-slide="12">
     <div class="flex flex-col items-center justify-center min-h-screen w-full px-8 text-center fade-in">
       <p class="text-navy-400 font-semibold text-sm tracking-widest uppercase mb-6">The Homebuyer Experience</p>
       <h2 class="text-4xl md:text-6xl font-bold mb-8 text-navy-700">White glove from<br>close to connected</h2>
@@ -674,7 +766,7 @@
     body.deako-edit .edit-switches-btn { background: #C99631; color: white; border-color: #C99631; }
   </style>
   <!-- ==================== SLIDE 17: CASE FOR CHANGE ==================== -->
-  <div class="slide" data-slide="12">
+  <div class="slide" data-slide="13">
     <div class="flex flex-col items-center justify-center min-h-screen w-full px-8 text-center fade-in py-6">
       <p class="text-orange-400 font-semibold text-sm tracking-widest uppercase mb-3 mt-8">The Case for Change</p>
       <h2 class="text-4xl md:text-5xl font-bold mb-6 text-navy-700">Why make the switch?</h2>
@@ -762,7 +854,7 @@
     .ai-video-modal-inner video, .ai-video-modal-inner iframe { width: 100%; height: 100%; border: 0; display: block; }
     .ai-video-close { position: absolute; top: -12px; right: -12px; width: 40px; height: 40px; border-radius: 50%; background: white; color: #3B4042; border: 0; cursor: pointer; font-size: 18px; font-weight: 700; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
   </style>
-  <div class="slide" data-slide="13">
+  <div class="slide" data-slide="14">
     <div class="flex flex-col items-center justify-center min-h-screen w-full px-8 py-4 fade-in">
       <div class="flex items-center justify-center gap-3 mb-2">
         <p class="text-orange-400 font-semibold text-xs tracking-widest uppercase">What's Next</p>
@@ -831,7 +923,7 @@
   </div>
 
   <!-- ==================== SLIDE 19: THANK YOU ==================== -->
-  <div class="slide" data-slide="14">
+  <div class="slide" data-slide="15">
     <div class="flex flex-col items-center justify-center min-h-screen w-full px-8 text-center fade-in bg-navy-700">
       <div style="background:white;border-radius:10px;padding:6px 20px;display:inline-flex;align-items:center;gap:12px;margin-bottom:2.5rem;">
         <img src="https://shop.deako.com/cdn/shop/files/Deako_2025_logo_500px_white.png?v=1743474883" alt="Deako" class="h-7" style="filter:invert(1);" onerror="this.style.display='none'">
@@ -1183,7 +1275,7 @@
     function nextSlide() { showSlide(current + 1, 1); }
     function prevSlide() { showSlide(current - 1, -1); }
 
-    function updatePricingBtn(){ const b=document.getElementById('pricingToggle'); if(b) b.textContent = _priceHidden() ? 'Show Pricing' : 'Hide Pricing'; }
+    function updatePricingBtn(){ const b=document.getElementById('pricingToggle'); if(!b) return; b.textContent='$'; const h=_priceHidden(); b.title=h?'Show pricing':'Hide pricing'; b.style.background=h?'rgba(59,64,66,0.92)':'#C99631'; b.style.color=h?'#C99631':'#fff'; }
     function togglePricing(){
       document.body.classList.toggle('hide-pricing');
       try { localStorage.setItem('clh-hide-pricing', _priceHidden()?'1':'0'); } catch(e){}
