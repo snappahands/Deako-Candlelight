@@ -23,6 +23,8 @@
     h1, h2, h3, h4, h5, h6 { font-family: 'Lora', serif; }
     .slide { display: none; min-height: 100vh; }
     .slide.active { display: flex; }
+    body.hide-pricing .pricing { display: none !important; }
+    body.hide-pricing .slide.price-slide { display: none !important; }
     .fade-in { animation: fadeIn 0.5s ease-in; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     .gradient-text { background: linear-gradient(135deg, #C99631, #3B4042); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
@@ -87,6 +89,8 @@
   </style>
 </head>
 <body class="bg-white text-navy-900 overflow-hidden">
+
+  <button onclick="togglePricing()" id="pricingToggle" style="position:fixed;top:16px;left:16px;z-index:50;background:rgba(59,64,66,0.92);backdrop-filter:blur(4px);border:1px solid rgba(201,150,49,0.4);border-radius:999px;padding:6px 14px;color:#C99631;font-size:12px;font-weight:700;letter-spacing:.03em;cursor:pointer;box-shadow:0 4px 20px rgba(0,0,0,0.25);">Show Pricing</button>
 
   <!-- Navigation -->
   <div style="position:fixed;top:16px;right:16px;z-index:50;display:flex;align-items:center;gap:8px;background:rgba(59,64,66,0.92);backdrop-filter:blur(4px);border:1px solid rgba(201,150,49,0.3);border-radius:999px;padding:6px 14px;box-shadow:0 4px 20px rgba(0,0,0,0.25);">
@@ -242,7 +246,7 @@
   </div>
 
   <!-- ==================== SLIDE 4: THE BOTTOM LINE ==================== -->
-  <div class="slide" data-slide="4">
+  <div class="slide price-slide" data-slide="4">
     <div class="flex flex-col items-center justify-center min-h-screen w-full px-8 text-center fade-in">
       <p class="text-orange-400 font-semibold text-sm tracking-widest uppercase mb-6">The Bottom Line</p>
       <h2 class="text-3xl md:text-5xl font-bold mb-12 text-navy-700">Better product. Elevated homebuyer experience. Lower cost.</h2>
@@ -282,7 +286,7 @@
   </div>
 
   <!-- ==================== SLIDE 5: AT CANDLELIGHT SCALE ==================== -->
-  <div class="slide" data-slide="5">
+  <div class="slide price-slide" data-slide="5">
     <div class="flex flex-col items-center justify-center min-h-screen w-full px-8 text-center fade-in bg-navy-700 py-8">
       <p class="text-orange-400 font-semibold text-sm tracking-widest uppercase mb-4">Candlelight at Scale</p>
       <h2 class="text-3xl md:text-5xl font-bold mb-3 text-white" data-slide5-title>What $425/home looks like<br>across 8,000 homes</h2>
@@ -332,7 +336,7 @@
             <p class="text-gray-600"><span class="text-gray-400 w-24 inline-block">Power:</span> Rechargeable battery (USB-C)</p>
             <p class="text-gray-600"><span class="text-gray-400 w-24 inline-block">App:</span> Google Home app</p>
           </div>
-          <p class="text-orange-400 text-3xl font-bold mt-6">$190</p>
+          <p class="text-orange-400 text-3xl font-bold mt-6 pricing">$190</p>
         </div>
         <div class="bg-white rounded-2xl p-8 border border-navy-200 shadow-sm cost-new">
           <p class="text-navy-700 font-bold text-sm tracking-widest uppercase mb-4">Deako + Vivint</p>
@@ -373,7 +377,7 @@
             <p class="text-gray-600"><span class="text-gray-400 w-24 inline-block">Connect:</span> Wi-Fi (no hub)</p>
             <p class="text-gray-600"><span class="text-gray-400 w-24 inline-block">App:</span> Kwikset app</p>
           </div>
-          <p class="text-orange-400 text-3xl font-bold mt-6">$140</p>
+          <p class="text-orange-400 text-3xl font-bold mt-6 pricing">$140</p>
         </div>
         <div class="bg-white rounded-2xl p-8 border border-navy-200 shadow-sm cost-new">
           <p class="text-navy-700 font-bold text-sm tracking-widest uppercase mb-4">Deako + Vivint</p>
@@ -413,7 +417,7 @@
             <p class="text-gray-600"><span class="text-gray-400 w-24 inline-block">Power:</span> 24VAC (C-wire)</p>
             <p class="text-gray-600"><span class="text-gray-400 w-24 inline-block">App:</span> Google Home app</p>
           </div>
-          <p class="text-orange-400 text-3xl font-bold mt-6">$120</p>
+          <p class="text-orange-400 text-3xl font-bold mt-6 pricing">$120</p>
         </div>
         <div class="bg-white rounded-2xl p-8 border border-navy-200 shadow-sm cost-new">
           <p class="text-navy-700 font-bold text-sm tracking-widest uppercase mb-4">Deako + Vivint</p>
@@ -675,7 +679,7 @@
       <p class="text-orange-400 font-semibold text-sm tracking-widest uppercase mb-3 mt-8">The Case for Change</p>
       <h2 class="text-4xl md:text-5xl font-bold mb-6 text-navy-700">Why make the switch?</h2>
       <div class="inline-flex flex-col space-y-3">
-        <div class="flex items-center gap-5 bg-white rounded-xl p-4 border border-gray-200 shadow-sm">
+        <div class="flex items-center gap-5 bg-white rounded-xl p-4 border border-gray-200 shadow-sm pricing">
           <div class="icon-sm bg-orange-100 text-orange-600 flex-shrink-0">$</div>
           <p class="text-lg text-gray-600 text-left whitespace-nowrap"><span class="text-navy-700 font-bold" data-savings-perhome>Save $425 per home</span> — more products at less cost than today</p>
         </div>
@@ -1140,7 +1144,13 @@
     let current = 1;
     const total = document.querySelectorAll('.slide').length;
 
-    function showSlide(n) {
+    function _priceHidden(){ return document.body.classList.contains('hide-pricing'); }
+    function _skipped(n){ const el=document.querySelector(`[data-slide="${n}"]`); return !!(el && el.classList.contains('price-slide') && _priceHidden()); }
+    function _visibleSlides(){ return Array.from(document.querySelectorAll('.slide')).filter(s => !(s.classList.contains('price-slide') && _priceHidden())); }
+
+    function showSlide(n, dir) {
+      dir = dir || (n < current ? -1 : 1);
+      while (n >= 1 && n <= total && _skipped(n)) n += dir;
       if (n < 1 || n > total) return;
       document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
       const slide = document.querySelector(`[data-slide="${n}"]`);
@@ -1149,9 +1159,10 @@
       void slide.querySelector('div')?.offsetWidth;
       slide.querySelector('div')?.classList.add('fade-in');
       current = n;
-      document.getElementById('slideCounter').textContent = `${current} / ${total}`;
+      const _vis = _visibleSlides(), _vi = _vis.findIndex(s => s.getAttribute('data-slide') === String(n)) + 1, _vt = _vis.length;
+      document.getElementById('slideCounter').textContent = `${_vi} / ${_vt}`;
       _updateFireworksBtn();
-      document.getElementById('progressBar').style.width = `${(current / total) * 100}%`;
+      document.getElementById('progressBar').style.width = `${(_vi / _vt) * 100}%`;
       // Re-anchor the slide-14 leader line whenever the platform slide becomes active
       // (its rects are zero while display:none, so first paint after navigation
       // can leave the line stale).
@@ -1169,8 +1180,20 @@
       });
     }
 
-    function nextSlide() { showSlide(current + 1); }
-    function prevSlide() { showSlide(current - 1); }
+    function nextSlide() { showSlide(current + 1, 1); }
+    function prevSlide() { showSlide(current - 1, -1); }
+
+    function updatePricingBtn(){ const b=document.getElementById('pricingToggle'); if(b) b.textContent = _priceHidden() ? 'Show Pricing' : 'Hide Pricing'; }
+    function togglePricing(){
+      document.body.classList.toggle('hide-pricing');
+      try { localStorage.setItem('clh-hide-pricing', _priceHidden()?'1':'0'); } catch(e){}
+      updatePricingBtn();
+      if (_skipped(current)) {
+        let f=current; while(f<=total && _skipped(f)) f++;
+        if(f>total){ let b=current; while(b>=1 && _skipped(b)) b--; showSlide(b,-1); } else showSlide(f,1);
+      } else { showSlide(current); }
+    }
+    (function(){ let pref=null; try{ pref=localStorage.getItem('clh-hide-pricing'); }catch(e){} if(pref!=='0') document.body.classList.add('hide-pricing'); updatePricingBtn(); })();
 
     document.addEventListener('keydown', (e) => {
       if (document.activeElement.tagName === 'TEXTAREA' || document.activeElement.tagName === 'INPUT') return;
