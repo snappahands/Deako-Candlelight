@@ -254,13 +254,13 @@
             <div class="flex justify-between text-base"><span class="text-gray-500">White Glove Installation</span><span class="text-green-600 font-semibold">included</span></div>
             <div class="flex justify-between text-base"><span class="text-gray-500">Security &amp; Smart Device add-ons</span><span class="text-orange-400 font-semibold">Optional</span></div>
             <hr class="border-gray-200 my-3">
-            <div class="flex justify-between text-2xl"><span class="text-navy-700 font-bold">Total</span><span class="text-navy-700 font-bold" data-dv-total>$685 / home</span></div>
+            <div class="flex justify-between text-2xl"><span class="text-navy-700 font-bold">Total</span><span class="text-navy-700 font-bold" data-dv-total>$590 / home</span></div>
           </div>
         </div>
       </div>
       <div class="savings-highlight rounded-2xl px-10 py-6 max-w-2xl">
-        <p class="text-4xl font-black gradient-text" data-savings-line>Save $190 Off Base Home Cost</p>
-        <p class="text-lg md:text-xl font-bold mt-2 text-navy-700"><span data-savings-pct class="text-green-600 font-black">22%</span> off Candlelight's current spend</p>
+        <p class="text-4xl font-black gradient-text" data-savings-line>Save $285 Off Base Home Cost</p>
+        <p class="text-lg md:text-xl font-bold mt-2 text-navy-700"><span data-savings-pct class="text-green-600 font-black">33%</span> off Candlelight's current spend</p>
       </div>
     </div>
   </div>
@@ -983,7 +983,7 @@
         // Garage opener isn't a Deako/Vivint product — it carries over at the same price on
         // both sides, so the Deako+Vivint total = package base + garage, and it nets out of savings.
         const garage = costs.garage || 0;
-        const dvTotal = DV_BASE + garage + 95;   // + Kwikset 620 lock (buyer-provided, not in package)
+        const dvTotal = DV_BASE + garage;   // Kwikset 620 ($95) shown informationally, not summed
         const savings = Math.max(0, total - dvTotal);
         document.querySelectorAll('[data-dv-garage]').forEach(el => el.textContent = fmt(garage));
         document.querySelectorAll('[data-dv-total]').forEach(el => el.textContent = fmt(dvTotal) + ' / home');
