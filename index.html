@@ -234,8 +234,8 @@
           <p class="text-orange-400 font-bold text-sm tracking-widest uppercase mb-6">Today</p>
           <div class="space-y-3 text-left">
             <div class="flex justify-between text-base"><span class="text-gray-500">Genie Garage Door Opener</span><span class="text-orange-400 font-semibold cost-input" data-cost="garage" contenteditable="true" spellcheck="false">$140</span></div>
-            <div class="flex justify-between text-base"><span class="text-gray-500">Nest Thermostat</span><span class="text-orange-400 font-semibold cost-input" data-cost="thermostat" contenteditable="true" spellcheck="false">$120</span></div>
             <div class="flex justify-between text-base"><span class="text-gray-500">Kwikset Halo Deadbolt</span><span class="text-orange-400 font-semibold cost-input" data-cost="kwikset" contenteditable="true" spellcheck="false">$250</span></div>
+            <div class="flex justify-between text-base"><span class="text-gray-500">Nest Thermostat</span><span class="text-orange-400 font-semibold cost-input" data-cost="thermostat" contenteditable="true" spellcheck="false">$120</span></div>
             <div class="flex justify-between text-base"><span class="text-gray-500">Nest Video Doorbell</span><span class="text-orange-400 font-semibold cost-input" data-cost="doorbell" contenteditable="true" spellcheck="false">$190</span></div>
             <div class="flex justify-between text-base"><span class="text-gray-500">Safe Streets Install</span><span class="text-orange-400 font-semibold cost-input" data-cost="install" contenteditable="true" spellcheck="false">$175</span></div>
             <hr class="border-gray-200 my-3">
@@ -247,20 +247,20 @@
           <p class="text-navy-700 font-bold text-sm tracking-widest uppercase mb-6">Deako + Vivint</p>
           <div class="space-y-3 text-left">
             <div class="flex justify-between text-base"><span class="text-gray-500">Genie Garage Door Opener</span><span class="text-orange-400 font-semibold" data-dv-garage>$140</span></div>
+            <div class="flex justify-between text-base"><span class="text-gray-500">Kwikset 620</span><span class="text-orange-400 font-semibold">$95</span></div>
             <div class="flex justify-between text-base"><span class="text-gray-500">Vivint Doorbell Camera + Chime</span><span class="text-green-600 font-semibold">included</span></div>
-            <div class="flex justify-between text-base"><span class="text-gray-500">Kwikset 620</span><span class="text-gray-400 font-semibold">not included</span></div>
             <div class="flex justify-between text-base"><span class="text-gray-500">Vivint Thermostat</span><span class="text-green-600 font-semibold">included</span></div>
             <div class="flex justify-between text-base"><span class="text-gray-500">Vivint App</span><span class="text-green-600 font-semibold">included</span></div>
             <div class="flex justify-between text-base"><span class="text-gray-500">White Glove Installation</span><span class="text-green-600 font-semibold">included</span></div>
             <div class="flex justify-between text-base"><span class="text-gray-500">Security &amp; Smart Device add-ons</span><span class="text-orange-400 font-semibold">Optional</span></div>
             <hr class="border-gray-200 my-3">
-            <div class="flex justify-between text-2xl"><span class="text-navy-700 font-bold">Total</span><span class="text-navy-700 font-bold" data-dv-total>$590 / home</span></div>
+            <div class="flex justify-between text-2xl"><span class="text-navy-700 font-bold">Total</span><span class="text-navy-700 font-bold" data-dv-total>$685 / home</span></div>
           </div>
         </div>
       </div>
       <div class="savings-highlight rounded-2xl px-10 py-6 max-w-2xl">
-        <p class="text-4xl font-black gradient-text" data-savings-line>Save $285 Off Base Home Cost</p>
-        <p class="text-lg md:text-xl font-bold mt-2 text-navy-700"><span data-savings-pct class="text-green-600 font-black">33%</span> off Candlelight's current spend</p>
+        <p class="text-4xl font-black gradient-text" data-savings-line>Save $190 Off Base Home Cost</p>
+        <p class="text-lg md:text-xl font-bold mt-2 text-navy-700"><span data-savings-pct class="text-green-600 font-black">22%</span> off Candlelight's current spend</p>
       </div>
     </div>
   </div>
@@ -983,7 +983,7 @@
         // Garage opener isn't a Deako/Vivint product — it carries over at the same price on
         // both sides, so the Deako+Vivint total = package base + garage, and it nets out of savings.
         const garage = costs.garage || 0;
-        const dvTotal = DV_BASE + garage;
+        const dvTotal = DV_BASE + garage + 95;   // + Kwikset 620 lock (buyer-provided, not in package)
         const savings = Math.max(0, total - dvTotal);
         document.querySelectorAll('[data-dv-garage]').forEach(el => el.textContent = fmt(garage));
         document.querySelectorAll('[data-dv-total]').forEach(el => el.textContent = fmt(dvTotal) + ' / home');
