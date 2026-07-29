@@ -272,8 +272,8 @@
         <div class="bg-white rounded-2xl p-8 border border-navy-200 shadow-sm cost-new">
           <p class="text-navy-700 font-bold text-sm tracking-widest uppercase mb-6">Deako + Vivint</p>
           <div class="space-y-3 text-left">
-            <div class="flex justify-between text-base"><span class="text-gray-500">Genie Garage Door Opener</span><span class="text-orange-400 font-semibold" data-dv-garage>$140</span></div>
-            <div class="flex justify-between text-base"><span class="text-gray-500">Kwikset 620</span><span class="text-orange-400 font-semibold">$95</span></div>
+            <div class="flex justify-between text-base"><span class="text-gray-500">Genie Garage Door Opener</span><span class="text-orange-400 font-semibold dv-cost-input" data-dvcost="dvgarage" contenteditable="true" spellcheck="false">$140</span></div>
+            <div class="flex justify-between text-base"><span class="text-gray-500">Kwikset 620</span><span class="text-orange-400 font-semibold dv-cost-input" data-dvcost="dvlock" contenteditable="true" spellcheck="false">$95</span></div>
             <div class="flex justify-between text-base"><span class="text-gray-500">Vivint Element Thermostat</span><span class="text-green-600 font-semibold">included</span></div>
             <div class="flex justify-between text-base"><span class="text-gray-500">Vivint Doorbell Camera Pro</span><span class="text-green-600 font-semibold">included</span></div>
             <div class="flex justify-between text-base"><span class="text-gray-500">Vivint Hub</span><span class="text-orange-400 font-semibold">Optional</span></div>
@@ -281,6 +281,7 @@
             <div class="flex justify-between text-base"><span class="text-gray-500">Security &amp; Smart Device add-ons</span><span class="text-orange-400 font-semibold">Optional</span></div>
             <hr class="border-gray-200 my-3">
             <div class="flex justify-between text-2xl"><span class="text-navy-700 font-bold">Total</span><span class="text-navy-700 font-bold" data-dv-total>$640 / home</span></div>
+            <p class="text-gray-400 text-xs mt-2 italic">click any price to edit</p>
           </div>
         </div>
       </div>
@@ -397,7 +398,7 @@
             <p class="text-gray-600"><span class="text-gray-400 w-24 inline-block">Connect:</span> Z-Wave (via panel)</p>
             <p class="text-gray-600"><span class="text-gray-400 w-24 inline-block">App:</span> Vivint app</p>
           </div>
-          <p class="text-orange-400 text-3xl font-bold mt-6 pricing">Included</p>
+          <p class="text-orange-400 text-3xl font-bold mt-6 pricing">$95</p>
         </div>
       </div>
     </div>
@@ -933,7 +934,7 @@
         <span style="color:#9ca3af;font-size:18px;font-weight:300;">+</span>
         <img src="images/vivint-logo-house.svg" alt="Vivint" class="h-7" onerror="this.style.display='none'">
       </div>
-      <h2 class="text-5xl md:text-7xl font-black mb-6 text-white">Thank <span class="text-white">you,</span><br><span class="text-3xl md:text-5xl font-semibold text-orange-400">Ty and Dave.</span></h2>
+      <h2 class="text-5xl md:text-7xl font-black mb-6 text-white">Thank <span class="text-white">you,</span><br><span class="text-3xl md:text-5xl font-semibold text-orange-400">Ty, Dave, and Kelsey.</span></h2>
       <p class="text-lg text-navy-300 mb-8 max-w-4xl leading-relaxed whitespace-nowrap">We're excited about what Deako + Vivint can deliver for Candlelight homebuyers.</p>
       <div class="flex flex-wrap gap-4 justify-center">
         <div class="bg-navy-800 rounded-2xl p-6 border border-navy-600 max-w-sm">
@@ -962,7 +963,7 @@
     // ===== Slide 4 / 5: editable Today-side prices, live recalc =====
     (function () {
       const STORAGE_KEY = 'candlelight-today-costs';
-      const DV_BASE = 500;        // Deako + Vivint base total
+      const DV_BASE = 405;        // Deako + Vivint included-package base; editable line items add on top
       const CLOSINGS_PER_YR = 200;
       const TOTAL_HOMES = 8000;
       const DEFAULTS = { garage: 140, thermostat: 120, kwikset: 140, doorbell: 190, install: 175 };
@@ -984,10 +985,9 @@
         const total = Object.values(costs).reduce((a, b) => a + b, 0);
         // Garage opener isn't a Deako/Vivint product — it carries over at the same price on
         // both sides, so the Deako+Vivint total = package base + garage, and it nets out of savings.
-        const garage = costs.garage || 0;
-        const dvTotal = DV_BASE + garage;   // Kwikset 620 ($95) shown informationally, not summed
+        const dvExtra = Array.from(document.querySelectorAll('.dv-cost-input[data-dvcost]')).reduce((a, el) => a + parsePrice(el.textContent), 0);
+        const dvTotal = DV_BASE + dvExtra;   // package base + editable Deako+Vivint line items (garage, Kwikset 620)
         const savings = Math.max(0, total - dvTotal);
-        document.querySelectorAll('[data-dv-garage]').forEach(el => el.textContent = fmt(garage));
         document.querySelectorAll('[data-dv-total]').forEach(el => el.textContent = fmt(dvTotal) + ' / home');
         // Today total
         const totEl = document.querySelector('[data-cost-total]');
@@ -1024,8 +1024,9 @@
         if (totEl2) totEl2.textContent = totalOpp >= 1e6
           ? '$' + (totalOpp / 1e6).toFixed(2) + 'M'
           : '$' + Math.round(totalOpp / 1000) + 'K';
-        // Persist
-        try { localStorage.setItem(STORAGE_KEY, JSON.stringify(costs)); } catch (e) {}
+        // Persist (left + right editable prices)
+        const dvCosts = {}; document.querySelectorAll('.dv-cost-input[data-dvcost]').forEach(el => dvCosts[el.dataset.dvcost] = parsePrice(el.textContent));
+        try { localStorage.setItem(STORAGE_KEY, JSON.stringify(Object.assign({}, costs, dvCosts))); } catch (e) {}
       }
       function loadCosts() {
         try {
@@ -1034,11 +1035,15 @@
             const k = el.dataset.cost;
             if (typeof stored[k] === 'number') el.textContent = fmt(stored[k]);
           });
+          document.querySelectorAll('.dv-cost-input[data-dvcost]').forEach(el => {
+            const k = el.dataset.dvcost;
+            if (typeof stored[k] === 'number') el.textContent = fmt(stored[k]);
+          });
         } catch (e) {}
       }
       function init() {
         loadCosts();
-        document.querySelectorAll('.cost-input[data-cost]').forEach(el => {
+        document.querySelectorAll('.cost-input[data-cost], .dv-cost-input[data-dvcost]').forEach(el => {
           el.addEventListener('input', recalc);
           el.addEventListener('blur', () => {
             // Normalize formatting on blur ("400" → "$400", "$765" stays)
