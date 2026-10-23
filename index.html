@@ -109,7 +109,7 @@
   <!-- Fireworks canvas overlay -->
   <canvas id="fireworksCanvas" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999;"></canvas>
 
-  <div class="version-badge" onclick="this.style.display='none'" title="Click to hide">v7.4</div>
+  <div class="version-badge" onclick="this.style.display='none'" title="Click to hide">v7.5</div>
 
   <!-- Progress bar -->
   <div class="fixed top-0 left-0 w-full h-1 bg-navy-100 z-50">
@@ -356,15 +356,15 @@
         <div class="bg-white rounded-2xl p-8 border border-navy-200 shadow-sm cost-new">
           <p class="text-navy-700 font-bold text-sm tracking-widest uppercase mb-6">Deako + Vivint</p>
           <div class="space-y-3 text-left">
-            <div class="flex justify-between text-base"><span class="text-gray-500">Genie Garage Door Opener</span><span class="text-orange-400 font-semibold dv-cost-input" data-dvcost="dvgarage" contenteditable="true" spellcheck="false">$140</span></div>
-            <div class="flex justify-between text-base"><span class="text-gray-500">Kwikset 620</span><span class="text-orange-400 font-semibold dv-cost-input" data-dvcost="dvlock" contenteditable="true" spellcheck="false">$95</span></div>
+            <div class="flex justify-between text-base"><span class="text-gray-500">LiftMaster Garage Door Opener</span><span class="text-orange-400 font-semibold">$145</span></div>
+            <div class="flex justify-between text-base"><span class="text-gray-500">Kwikset Halo Deadbolt</span><span class="text-orange-400 font-semibold" data-mirror-cost="kwikset">$250</span></div>
             <div class="flex justify-between text-base"><span class="text-gray-500">Vivint Element Thermostat</span><span class="text-green-600 font-semibold">included</span></div>
             <div class="flex justify-between text-base"><span class="text-gray-500">Vivint Doorbell Camera Pro</span><span class="text-green-600 font-semibold">included</span></div>
             <div class="flex justify-between text-base"><span class="text-gray-500">Vivint Hub</span><span class="text-orange-400 font-semibold">Optional</span></div>
             <div class="flex justify-between text-base"><span class="text-gray-500">White Glove Installation</span><span class="text-green-600 font-semibold">included</span></div>
             <div class="flex justify-between text-base"><span class="text-gray-500">Security &amp; Smart Device add-ons</span><span class="text-orange-400 font-semibold">Optional</span></div>
             <hr class="border-gray-200 my-3">
-            <div class="flex justify-between text-2xl"><span class="text-navy-700 font-bold">Total</span><span class="text-navy-700 font-bold" data-dv-total>$640 / home</span></div>
+            <div class="flex justify-between text-2xl"><span class="text-navy-700 font-bold">Total</span><span class="text-navy-700 font-bold" data-dv-total>$799 / home</span></div>
             <p class="text-gray-400 text-xs mt-2 italic">click any price to edit</p>
           </div>
         </div>
@@ -1047,7 +1047,7 @@
     // ===== Slide 4 / 5: editable Today-side prices, live recalc =====
     (function () {
       const STORAGE_KEY = 'candlelight-today-costs';
-      const DV_BASE = 405;        // Deako + Vivint included-package base; editable line items add on top
+      const DV_TOTAL = 799;       // Deako + Vivint total per home (fixed)
       const CLOSINGS_PER_YR = 200;
       const TOTAL_HOMES = 8000;
       const DEFAULTS = { garage: 140, thermostat: 120, kwikset: 140, doorbell: 190, install: 175 };
@@ -1070,8 +1070,10 @@
         // Garage opener isn't a Deako/Vivint product — it carries over at the same price on
         // both sides, so the Deako+Vivint total = package base + garage, and it nets out of savings.
         const dvExtra = Array.from(document.querySelectorAll('.dv-cost-input[data-dvcost]')).reduce((a, el) => a + parsePrice(el.textContent), 0);
-        const dvTotal = DV_BASE + dvExtra;   // package base + editable Deako+Vivint line items (garage, Kwikset 620)
+        const dvTotal = DV_TOTAL;   // fixed Deako + Vivint price per home
         const savings = Math.max(0, total - dvTotal);
+        // Halo lock is the same on both sides: right side shows the Today price
+        document.querySelectorAll('[data-mirror-cost]').forEach(el => el.textContent = fmt(costs[el.dataset.mirrorCost] || 0));
         document.querySelectorAll('[data-dv-total]').forEach(el => el.textContent = fmt(dvTotal) + ' / home');
         // Today total
         const totEl = document.querySelector('[data-cost-total]');
